@@ -1,7 +1,6 @@
-import json
+from api.user_api import *
 
-content = b'{"access_token":"AQVHUT7QeWOKRgQG8BXdbmFb8j9ht-sLs19IkTpW9JNdTtRJizhQ_jvsbFq-8scWyCWCjhgbYWSHR1kcJJoKd0yE3DA35BXrvOHWuu6hkXudt1l9IHMERtP8PjvT4geOdO8z_eMzx2Xl7aSHpBGZSoV-mdgvIIrd8-LVELKum9Q5-ncLwgg9ayI40BNBIS3mjQSDns7EZI1eaJDIPbrJuuwzwczldkUPJGQXpmtag8_-p8qLzfQN6CSvwJl0dEai17Bb9ZPmgxwc8g_CVyPgn52D6w12UOO8opKc8tg9rnqO7IiH0DX3zefXv0aAgBQ5EwHzz-RCLNF3_lyh0_ZOyZL5gtEMxA","expires_in":5183999}'
-
-var = json.loads(content)
-
-print(var["access_token"])
+me = get_me()
+print(me.firstName)
+print(me.lastName)
+print(me.id)
