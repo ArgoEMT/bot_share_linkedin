@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(1, './')
 from api.auth_api import *
 import json
 
@@ -5,8 +7,8 @@ with open("credentials.json", "r") as jsonFile:
     initial_credentials = json.load(jsonFile)
 
 # auth_code = get_authorization_code(
-#     client_id = initial_credentials["client_id"],
-#     redirect_uri = initial_credentials["redirect_uri"],
+#     client_id=initial_credentials["client_id"],
+#     redirect_uri=initial_credentials["redirect_uri"],
 # )
 
 

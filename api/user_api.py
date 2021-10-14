@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(1, './')
 import requests
 import json
 from helpers.get_header import *
