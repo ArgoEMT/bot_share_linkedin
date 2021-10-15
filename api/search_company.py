@@ -23,7 +23,7 @@ def get_companies():
         companies = []
         for element in elementsJson:
             companies.append(Company.fromJson(json=element))
-        return companies
+    return companies
 
 
 # TEST get_companies
