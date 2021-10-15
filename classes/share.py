@@ -1,13 +1,13 @@
-class Share () :
-    originalShare : str
-    owner : str
+class Share ():
+    id: str
+    owner: str
 
-    def __init__ (self, originalShare, owner) :
-        self.originalShare = originalShare
+    def __init__(self, id, owner):
+        self.id = id
         self.owner = owner
 
-    def fromJSON (self, json) :
-        originalShare = json["originalShare"]
+    def fromJson(self, json):
+        id = json["id"]
         owner = json["owner"]
 
-        return Share(originalShare=originalShare, owner=owner)
+        return Share(id=id, owner=owner)
