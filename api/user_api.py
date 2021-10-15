@@ -11,5 +11,9 @@ def get_me():
         "https://api.linkedin.com/v2/me",
         headers=get_header()
     )
-
-    return User.fromJson(json=json.loads(response.content))
+    if (response.status_code != 200):
+        print(f"Error : {response.content}")
+        return None
+    else: 
+        responseJson = json.loads(response.content)
+        return User.fromJson(json=responseJson)
