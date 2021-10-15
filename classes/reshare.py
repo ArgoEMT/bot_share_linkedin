@@ -10,7 +10,8 @@ class Reshare () :
     def toJSON (self) :
         json = {
             "originalShare: {originalShare}".format(self.share.originalShare),
-            "owner: {originalShare}".format(self.share.owner),
-            "text: {originalShare}".format(self.share.text)
+            "owner: {owner}".format(self.share.owner),
+            "text: {text}".format(self.share.text)
         }
         return json
+
