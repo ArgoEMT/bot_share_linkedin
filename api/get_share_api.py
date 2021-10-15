@@ -8,11 +8,10 @@ sys.path.insert(1, './')
 
 def get_share(urn):
     response = requests.get(
-        f"https://api.linkedin.com/v2/shares",
+        "https://api.linkedin.com/v2/shares",
         params={'q': 'owners', 'owners': urn, 'sortBy': 'CREATED'},
         headers=get_header()
     )
-    print(response.url)
     if (response.status_code != 200):
         print(f"Error : {response.content}")
         return None
@@ -21,4 +20,4 @@ def get_share(urn):
         return Share.fromJson(responseJson)
 
 
-get_share('54165')
+#get_share('54165')
