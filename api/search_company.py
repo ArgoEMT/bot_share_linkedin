@@ -1,14 +1,15 @@
 import sys
 sys.path.insert(1, './')
-import requests
-import json
-from helpers.get_header import *
 from classes.company import *
+from helpers.get_header import *
+import json
+import requests
+
 
 def get_companies():
     response = requests.get(
         "https://api.linkedin.com/v2/companySearch?q=search",
-         params={
+        params={
             'networkDegree': 'S',
         },
         headers=get_header()
@@ -16,10 +17,14 @@ def get_companies():
     if (response.status_code != 200):
         print(f"Error : {response.content}")
         return None
-    else: 
+    else:
         responseJson = json.loads(response.content)
-        # TODO: retourne une entreprise
-        return Company.fromJson(json=responseJson)
+        elementsJson = json.loads(responseJson["elements"])
+        companies = []
+        for element in elementsJson:
+            companies.append(Company.fromJson(json=element))
+        return companies
+
 
 # TEST get_companies
 get_companies()
