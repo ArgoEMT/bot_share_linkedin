@@ -19,10 +19,10 @@ def get_companies():
         return None
     else:
         responseJson = json.loads(response.content)
-        elementsJson = json.loads(responseJson["elements"])
+        elements = responseJson["elements"]
         companies = []
-        for element in elementsJson:
-            companies.append(Company.fromJson(json=element))
+        for company in elements:
+            companies.append(Company.fromJson(json=company))
     return companies
 
 
