@@ -1,17 +1,26 @@
+import sys
+sys.path.insert(1, './')
+import json
+
+from classes.share import *
 class Reshare () :
+    share : Share
 
-    share : object
-    text : str
-
-    def __init__ (self, share, text=None) :
+    def __init__ (self, share) :
         self.share = share
-        self.text = text
 
-    def toJSON (self) :
-        json = {
-            "originalShare: {originalShare}".format(self.share.originalShare),
-            "owner: {owner}".format(self.share.owner),
-            "text: {text}".format(self.share.text)
+    def toJson (self) :
+        with open("credentials.json", "r") as jsonFile:
+            initial_credentials = json.load(jsonFile)
+        
+        orgaId = initial_credentials["orga_id"]
+        returnJson = {
+            "originalShare": f"urn:li:share:{self.share.id}",
+            "owner": f"urn:li:organization:{orgaId}"
         }
-        return json
+        return returnJson
 
+# TEST: class Reshare
+# share = Share("1", "me", "3000000")
+# reshare = Reshare(share)
+# print(reshare.toJson())

@@ -1,15 +1,15 @@
+import sys
+sys.path.insert(1, './')
 from classes.share import *
 from helpers.get_header import *
 import json
 import requests
-import sys
-sys.path.insert(1, './')
 
 
-def get_share(urn):
+def get_share(companyUrn: str) -> Share :
     response = requests.get(
         "https://api.linkedin.com/v2/shares",
-        params={'q': 'owners', 'owners': urn, 'sortBy': 'CREATED'},
+        params={'q': 'owners', 'owners': companyUrn, 'sortBy': 'CREATED'},
         headers=get_header()
     )
     if (response.status_code != 200):
@@ -20,4 +20,3 @@ def get_share(urn):
         return Share.fromJson(responseJson)
 
 
-#get_share('54165')
