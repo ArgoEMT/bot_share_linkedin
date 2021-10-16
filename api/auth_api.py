@@ -3,6 +3,13 @@ import webbrowser
 import json
 
 
+#? Permission needed
+# rw_organization_admin
+# w_organization_social
+# r_organization_social
+# w_member_social
+# r_member_social
+
 def get_authorization_code(
     client_id,
     redirect_uri,
@@ -13,7 +20,7 @@ def get_authorization_code(
             'response_type': 'code',
             'client_id': client_id,
             'redirect_uri': requests.utils.unquote(redirect_uri),
-            'scope': requests.utils.unquote('r_liteprofile%20r_emailaddress%20w_member_social')
+            'scope': requests.utils.unquote('rw_organization_admin%20w_organization_social%20r_organization_social%20r_member_social')
         },
     )
     webbrowser.open(response.url)

@@ -6,7 +6,7 @@ import json
 import requests
 
 
-def get_companies():
+def get_companies() -> list[Company]:
     response = requests.get(
         "https://api.linkedin.com/v2/companySearch?q=search",
         params={
